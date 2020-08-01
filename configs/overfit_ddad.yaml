@@ -28,20 +28,20 @@ datasets:
     train:
         batch_size: 4
         dataset: ['DGP']
-        path: ['/data/datasets/DDAD_tiny/ddad_tiny.json']
+        path: ['../DDAD_tiny/ddad_tiny.json']
         split: ['train']
         depth_type: ['lidar']
         cameras: [['camera_01']]
         repeat: [500]
     validation:
         dataset: ['DGP']
-        path: ['/data/datasets/DDAD_tiny/ddad_tiny.json']
+        path: ['../DDAD_tiny/ddad_tiny.json']
         split: ['train']
         depth_type: ['lidar']
         cameras: [['camera_01']]
     test:
         dataset: ['DGP']
-        path: ['/data/datasets/DDAD_tiny/ddad_tiny.json']
+        path: ['../DDAD_tiny/ddad_tiny.json']
         split: ['train']
         depth_type: ['lidar']
         cameras: [['camera_01']]

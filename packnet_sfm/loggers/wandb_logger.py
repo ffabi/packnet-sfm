@@ -50,7 +50,7 @@ class WandbLogger:
         super().__init__()
         self._name = name
         self._dir = dir
-        self._anonymous = 'allow' if anonymous else None
+        self._anonymous = 'allow' if anonymous else "never"
         self._id = version or id
         self._tags = tags
         self._project = project
@@ -72,7 +72,7 @@ class WandbLogger:
         experiment = wandb.init(
             name=self._name, dir=self._dir, project=self._project,
             anonymous=self._anonymous, reinit=True, id=self._id,
-            resume='allow', tags=self._tags, entity=self._entity
+            resume='allow', tags=self._tags, entity=self._entity, save_code = True
         )
         wandb.run.save()
         return experiment

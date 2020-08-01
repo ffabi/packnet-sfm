@@ -1,5 +1,5 @@
 arch:
-    max_epochs: 1
+    max_epochs: 5
 model:
     name: 'SelfSupModel'
     optimizer:
@@ -26,19 +26,19 @@ datasets:
     augmentation:
         image_shape: (192, 640)
     train:
-        batch_size: 6
+        batch_size: 8
         dataset: ['KITTI']
-        path: ['/data/datasets/KITTI_tiny']
-        split: ['kitti_tiny.txt']
+        path: ['/root/packnet/kitti_raw']
+        split: ['data_splits/overfit_eigen_zhou_files.txt']
         depth_type: ['velodyne']
-        repeat: [1000]
+        repeat: [10]
     validation:
         dataset: ['KITTI']
-        path: ['/data/datasets/KITTI_tiny']
+        path: ['/shared/ffabi_shared_folder/datasets/original_datasets/kitti_all/sample/KITTI_tiny']
         split: ['kitti_tiny.txt']
         depth_type: ['velodyne']
     test:
         dataset: ['KITTI']
-        path: ['/data/datasets/KITTI_tiny']
+        path: ['/shared/ffabi_shared_folder/datasets/original_datasets/kitti_all/sample/KITTI_tiny']
         split: ['kitti_tiny.txt']
         depth_type: ['velodyne']

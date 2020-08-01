@@ -15,11 +15,10 @@ datasets:
         image_shape: (192, 640)
     test:
         dataset: ['KITTI']
-        path: ['/data/datasets/KITTI_raw']
-        split: ['data_splits/eigen_test_files.txt']
+        path: ['/shared/ffabi_shared_folder/datasets/original_datasets/kitti_all/sample/KITTI_tiny']
+        split: ['kitti_tiny.txt']
         depth_type: ['velodyne']
 save:
-    folder: '/data/save'
     depth:
         rgb: True
         viz: True

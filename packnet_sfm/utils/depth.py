@@ -285,6 +285,7 @@ def compute_depth_metrics(config, gt, pred, use_gt_scale=True):
     # If using crop
     if crop:
         crop_mask = torch.zeros(gt.shape[-2:]).byte().type_as(gt)
+        # crop used by Garg ECCV16 to reprocude Eigen NIPS14 results
         y1, y2 = int(0.40810811 * gt_height), int(0.99189189 * gt_height)
         x1, x2 = int(0.03594771 * gt_width), int(0.96405229 * gt_width)
         crop_mask[y1:y2, x1:x2] = 1

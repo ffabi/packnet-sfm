@@ -15,12 +15,11 @@ datasets:
         image_shape: (384, 640)
     test:
         dataset: ['DGP']
-        path: ['/data/datasets/DDAD/ddad.json']
+        path: ['../DDAD/ddad.json']
         split: ['val']
         depth_type: ['lidar']
         cameras: [['camera_01']]
 save:
-    folder: '/data/save'
     depth:
         rgb: True
         viz: True

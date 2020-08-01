@@ -19,9 +19,9 @@ cfg.arch.max_epochs = 50                # Maximum number of epochs
 ### CHECKPOINT
 ########################################################################################################################
 cfg.checkpoint = CN()
-cfg.checkpoint.filepath = ''            # Checkpoint filepath to save data
-cfg.checkpoint.save_top_k = 5           # Number of best models to save
-cfg.checkpoint.monitor = 'loss'         # Metric to monitor for logging
+cfg.checkpoint.filepath = '/root/packnet/results'            # Checkpoint filepath to save data
+cfg.checkpoint.save_top_k = 1           # Number of best models to save
+cfg.checkpoint.monitor = 'abs_rel'         # Metric to monitor for logging
 cfg.checkpoint.monitor_index = 0        # Dataset index for the metric to monitor
 cfg.checkpoint.mode = 'auto'            # Automatically determine direction of improvement (increase or decrease)
 cfg.checkpoint.s3_path = ''             # s3 path for AWS model syncing
@@ -30,7 +30,7 @@ cfg.checkpoint.s3_frequency = 1         # How often to s3 sync
 ### SAVE
 ########################################################################################################################
 cfg.save = CN()
-cfg.save.folder = ''                    # Folder where data will be saved
+cfg.save.folder = '/root/packnet/results'                    # Folder where data will be saved
 cfg.save.depth = CN()
 cfg.save.depth.rgb = True               # Flag for saving rgb images
 cfg.save.depth.viz = True               # Flag for saving inverse depth map visualization
@@ -40,10 +40,10 @@ cfg.save.depth.png = True               # Flag for saving png depth maps
 ### WANDB
 ########################################################################################################################
 cfg.wandb = CN()
-cfg.wandb.dry_run = True                                 # Wandb dry-run (not logging)
+cfg.wandb.dry_run = False                                 # Wandb dry-run (not logging)
 cfg.wandb.name = ''                                      # Wandb run name
-cfg.wandb.project = os.environ.get("WANDB_PROJECT", "")  # Wandb project
-cfg.wandb.entity = os.environ.get("WANDB_ENTITY", "")    # Wandb entity
+cfg.wandb.project = os.environ.get("WANDB_PROJECT", "packnet-sfm")  # Wandb project
+cfg.wandb.entity = os.environ.get("WANDB_ENTITY", "ffabi")    # Wandb entity
 cfg.wandb.tags = []                                      # Wandb tags
 cfg.wandb.dir = ''                                       # Wandb save folder
 ########################################################################################################################
@@ -136,7 +136,7 @@ cfg.datasets.augmentation.jittering = (0.2, 0.2, 0.2, 0.05)     # Color jitterin
 ########################################################################################################################
 cfg.datasets.train = CN()
 cfg.datasets.train.batch_size = 8                   # Training batch size
-cfg.datasets.train.num_workers = 16                 # Training number of workers
+cfg.datasets.train.num_workers = 8                  # Training number of workers
 cfg.datasets.train.back_context = 1                 # Training backward context
 cfg.datasets.train.forward_context = 1              # Training forward context
 cfg.datasets.train.dataset = []                     # Training dataset

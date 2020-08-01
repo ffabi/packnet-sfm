@@ -14,7 +14,6 @@ datasets:
         path: ['images']
         split: ['{:010d}']
 save:
-    folder: '/data/save'
     depth:
         rgb: True
         viz: True
